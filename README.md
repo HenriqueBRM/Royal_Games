@@ -1,13 +1,17 @@
 # Royal_Games
 👑 Royal Games
 
+=--------------------------=
+
 Aplicação FullStack desenvolvida com foco em arquitetura web moderna, desempenho e escalabilidade.
 
 Este projeto utiliza .NET / ASP.NET para construção de APIs robustas no backend e Next.js com React.js no frontend, garantindo uma interface dinâmica, performática e com renderização otimizada.
 
+=--------------------------=
 
 🧠 Arquitetura do Projeto
 
+=--------------------------=
 
 🔹 Backend (API REST):
 
@@ -19,7 +23,6 @@ Este projeto utiliza .NET / ASP.NET para construção de APIs robustas no backen
 
 -Preparado para escalabilidade e manutenção.
 
-
 🔹 Frontend (Web App):
 
 -Desenvolvido com Next.js.
@@ -30,11 +33,13 @@ Este projeto utiliza .NET / ASP.NET para construção de APIs robustas no backen
 
 -Foco em performance e experiência do usuário.
 
+=--------------------------=
 
 🛠️ Tecnologias Utilizadas
 
+=--------------------------=
 
-🔙 Backend
+🔙 Backend:
 
 -.NET.
 
@@ -45,7 +50,7 @@ Este projeto utiliza .NET / ASP.NET para construção de APIs robustas no backen
 -REST APIs.
 
 
-🔜 Frontend
+🔜 Frontend:
 
 -Next.js.
 
@@ -54,3 +59,5 @@ Este projeto utiliza .NET / ASP.NET para construção de APIs robustas no backen
 -JavaScript / TypeScript.
 
 -HTML5 & CSS3.
+
+=--------------------------=
