@@ -79,7 +79,7 @@ namespace Royal_Games.Applications.Services
         {
             ValidarNome(criarDto);
 
-            Plataforma plataformaBanco = _repository.ObterPorId(Id);
+            Plataforma plataformaBanco = _repository.ObterPorId(Id)!;
 
             if(plataformaBanco == null)
             {
@@ -97,7 +97,7 @@ namespace Royal_Games.Applications.Services
 
         public void Remover(int Id)
         {
-            Plataforma plataformaBanco = _repository.ObterPorId(Id);
+            Plataforma plataformaBanco = _repository.ObterPorId(Id)!;
 
             if(plataformaBanco == null)
             {
