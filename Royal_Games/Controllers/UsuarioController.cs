@@ -84,7 +84,7 @@ namespace Royal_Games.Controllers
             }
             catch (DomainException ex)
             {
-                BadRequest(ex.Message);
+                return BadRequest(ex.Message);
             }
         }
     }

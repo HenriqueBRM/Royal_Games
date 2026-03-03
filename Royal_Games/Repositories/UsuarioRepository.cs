@@ -14,27 +14,33 @@ namespace Royal_Games.Repositories
         {
             _context = context;
         }
+
         public List<Usuario> Listar()
         {
             return _context.Usuario.ToList();
         }
+
         public Usuario? ObterPorId(int id)
         {
             return _context.Usuario.Find(id);
         }
+
         public Usuario? ObterPorEmail(string email)
         {
             return _context.Usuario.FirstOrDefault(e => e.Email == email);
         }
+
         public bool EmailExiste(string email)
         {
             return _context.Usuario.Any(e => e.Email == email);
         }
+
         public void Adicionar(Usuario usuario)
         {
             _context.Usuario.Add(usuario);
             _context.SaveChanges();
         }
+
         public void Atualizar(Usuario usuario)
         {
             Usuario? usuarioBanco = _context.Usuario.FirstOrDefault(uAux => uAux.UsuarioID == usuario.UsuarioID);
