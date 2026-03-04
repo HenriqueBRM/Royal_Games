@@ -19,7 +19,7 @@ namespace Royal_Games.Applications.Services
         {
             List<Genero> generos = _repository.Listar();
 
-            List<LerGeneroDto> generoDto = generos.Select(genero => new LerGeneroDto(
+            List<LerGeneroDto> generoDto = generos.Select(genero => new LerGeneroDto
             {
                 GeneroId = genero.GeneroID,
                 Nome = genero.Nome
