@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Applications\Conversoes\NovaPasta\**" />
+    <Content Remove="Applications\Conversoes\NovaPasta\**" />
+    <EmbeddedResource Remove="Applications\Conversoes\NovaPasta\**" />
+    <None Remove="Applications\Conversoes\NovaPasta\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.23" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.23" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.23">
@@ -23,8 +30,6 @@
 
   <ItemGroup>
     <Folder Include="Applications\Autenticacao\" />
-    <Folder Include="Applications\Conversoes\" />
-    <Folder Include="Applications\Regras\" />
   </ItemGroup>
 
 </Project>
