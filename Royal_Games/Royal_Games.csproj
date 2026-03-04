@@ -22,7 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Applications\Autenticacao\" />
     <Folder Include="Applications\Conversoes\" />
   </ItemGroup>
 
