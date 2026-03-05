@@ -11,7 +11,7 @@ public partial class Log_AlteracaoJogo
 
     public string NomeAnterior { get; set; } = null!;
 
-    public decimal PrecoAnterior { get; set; }
+    public decimal? PrecoAnterior { get; set; }
 
     public int? JogoID { get; set; }
 
