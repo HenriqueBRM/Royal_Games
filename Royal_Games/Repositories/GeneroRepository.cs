@@ -23,7 +23,7 @@ namespace Royal_Games.Repositories
             return _context.Genero.Find(id);
         }
 
-        public bool GeneroExiste(string nome, int? GeneroIdAtual = null)
+        public bool NomeExiste(string nome, int? GeneroIdAtual = null)
         {
             var consulta = _context.Genero.AsQueryable();
 

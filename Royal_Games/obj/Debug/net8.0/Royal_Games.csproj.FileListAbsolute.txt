@@ -1,0 +1,9 @@
+C:\Users\43698404818\Desktop\Royal_Games\Royal_Games\obj\Debug\net8.0\Royal_Games.csproj.AssemblyReference.cache
+C:\Users\43698404818\Desktop\Royal_Games\Royal_Games\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\43698404818\Desktop\Royal_Games\Royal_Games\obj\Debug\net8.0\Royal_Games.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\43698404818\Desktop\Royal_Games\Royal_Games\obj\Debug\net8.0\Royal_Games.AssemblyInfoInputs.cache
+C:\Users\43698404818\Desktop\Royal_Games\Royal_Games\obj\Debug\net8.0\Royal_Games.AssemblyInfo.cs
+C:\Users\43698404818\Desktop\Royal_Games\Royal_Games\obj\Debug\net8.0\Royal_Games.csproj.CoreCompileInputs.cache
+C:\Users\43698404818\Desktop\Royal_Games\Royal_Games\obj\Debug\net8.0\Royal_Games.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\43698404818\Desktop\Royal_Games\Royal_Games\obj\Debug\net8.0\Royal_Games.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\43698404818\Desktop\Royal_Games\Royal_Games\obj\Debug\net8.0\Royal_Games.sourcelink.json

@@ -4,7 +4,7 @@ using Royal_Games.Interfaces;
 
 namespace Royal_Games.Repositories
 {
-    public class PromocaoRepository:Royal_GamesContext
+    public class PromocaoRepository : IPromocaoRepository
     {
         private readonly Royal_GamesContext _context;
 
@@ -21,7 +21,7 @@ namespace Royal_Games.Repositories
         public Promocao ObterPorId(int id)
         {
             Promocao? promocao = _context.Promocao.FirstOrDefault(p => p.PromocaoID == id);
-            return promocao;
+            return promocao!;
         }
 
         public bool NomeExiste(string nome, int? promocaoIdAtual = null)
