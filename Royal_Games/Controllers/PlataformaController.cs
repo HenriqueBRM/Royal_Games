@@ -25,7 +25,7 @@ namespace Royal_Games.Controllers
             return Ok(plataformas);
         }
 
-        [HttpGet("{id}")] // "GET" --> Listar
+        [HttpGet("{Id}")] // "GET" --> Listar
         public ActionResult<LerPlataformaDto> ObterPorId(int Id)
         {
             LerPlataformaDto plataforma = _service.ObterPorId(Id);
@@ -53,7 +53,7 @@ namespace Royal_Games.Controllers
             }
         }
 
-        [HttpPut("{id}")] // "Put" --> Atualizar/Substituir
+        [HttpPut("{Id}")] // "Put" --> Atualizar/Substituir
         [Authorize]
         public ActionResult Atualizar(int Id, CriarPlataformaDto criarDto)
         {
@@ -68,7 +68,7 @@ namespace Royal_Games.Controllers
             }
         }
 
-        [HttpDelete("{id}")] // "Delete" --> Remover
+        [HttpDelete("{Id}")] // "Delete" --> Remover
         [Authorize]
         public ActionResult Remover(int Id)
         {

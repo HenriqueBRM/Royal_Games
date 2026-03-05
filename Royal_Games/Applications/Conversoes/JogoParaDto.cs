@@ -16,10 +16,13 @@ namespace Royal_Games.Applications.Conversoes
                 Descricao = jogo.Descricao,
                 StatusJogo = jogo.StatusJogo,
 
-                // EXTREMAMENTE NECESSÁRIO FAZER COMO NO EXEMPLO COMENTADO ABAIXO DO VH_BURGUER COM GENERO, JOGOPROMOCAO, LOG_ALTERACAOJOGO E PLATAFORMA.
+                GeneroID = jogo.Genero.Select(genero => genero.GeneroID).ToList(),
 
-                /*CategoriaIds = jogo.Categoria.Select(categoria => categoria.CategoriaId).ToList(),
-                Categorias = jogo.Categoria.Select(categoria => categoria.Nome).ToList(),*/
+                Generos = jogo.Genero.Select(genero => genero.Nome).ToList(),
+
+                PlataformaID = jogo.Plataforma.Select(plataforma => plataforma.PlataformaID).ToList(),
+
+                Plataformas = jogo.Plataforma.Select(plataforma => plataforma.Nome).ToList(),
 
                 UsuarioID = jogo.UsuarioID,
                 UsuarioNome = jogo.Usuario!.Nome,

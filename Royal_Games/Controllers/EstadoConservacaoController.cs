@@ -25,10 +25,10 @@ namespace Royal_Games.Controllers
             return Ok(estados);
         }
 
-        [HttpGet("{id}")]
-        public ActionResult<LerEstadoConservacaoDto> ObterPorId(int id)
+        [HttpGet("{Id}")]
+        public ActionResult<LerEstadoConservacaoDto> ObterPorId(int Id)
         {
-            LerEstadoConservacaoDto estadoC = _service.ObterPorId(id);
+            LerEstadoConservacaoDto estadoC = _service.ObterPorId(Id);
 
             if (estadoC == null)
             {
@@ -53,13 +53,13 @@ namespace Royal_Games.Controllers
             }
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{Id}")]
         [Authorize]
-        public ActionResult Atualizar(int id, CriarEstadoConservacaoDto criarDto)
+        public ActionResult Atualizar(int Id, CriarEstadoConservacaoDto criarDto)
         {
             try
             {
-                _service.Atualizar(id, criarDto);
+                _service.Atualizar(Id, criarDto);
                 return NoContent();
             }
             catch (DomainException ex)
@@ -68,13 +68,13 @@ namespace Royal_Games.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{Id}")]
         [Authorize]
-        public ActionResult Remover(int id)
+        public ActionResult Remover(int Id)
         {
             try
             {
-                _service.Remover(id);
+                _service.Remover(Id);
                 return NoContent();
             }
             catch (DomainException ex)

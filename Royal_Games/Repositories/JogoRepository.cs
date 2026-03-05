@@ -62,23 +62,19 @@ namespace Royal_Games.Repositories
             return jogo!;
         }
 
-        public void Adicionar(Jogo jogo, List<int> generoIds, List<int> jogoPromoIds, List<int> logIds, List<int> plataformaIds)
+        public void Adicionar(Jogo jogo, List<int> GeneroID, List<int> Log_AlteracaoJogoID, List<int> PlataformaID)
         {
             List<Genero> generos = _context.Genero
-                .Where(genero => generoIds.Contains(genero.GeneroID))
+                .Where(genero => GeneroID.Contains(genero.GeneroID))
                 .ToList();
-            /*List<JogoPromocao> jogoPromos = _context.JogoPromocao
-                .Where(jogoPromo => jogoPromoIds.Contains(jogoPromo.JogoPromocaoID))
-                .ToList();*/
             List<Log_AlteracaoJogo> logs = _context.Log_AlteracaoJogo
-                .Where(log => logIds.Contains(log.Log_AlteracaoJogoID))
+                .Where(log => Log_AlteracaoJogoID.Contains(log.Log_AlteracaoJogoID))
                 .ToList();
             List<Plataforma> plataformas = _context.Plataforma
-                .Where(plataforma => plataformaIds.Contains(plataforma.PlataformaID))
+                .Where(plataforma => PlataformaID.Contains(plataforma.PlataformaID))
                 .ToList();
 
             jogo.Genero = generos;
-            //jogo.JogoPromocao = jogoPromos;
             jogo.Log_AlteracaoJogo = logs;
             jogo.Plataforma = plataformas;
 
@@ -86,11 +82,10 @@ namespace Royal_Games.Repositories
             _context.SaveChanges();
         }
 
-        public void Atualizar(Jogo jogo, List<int> generoIds, List<int> jogoPromoIds, List<int> logIds, List<int> plataformaIds)
+        public void Atualizar(Jogo jogo, List<int> GeneroID, List<int> Log_AlteracaoJogoID, List<int> PlataformaID)
         {
             Jogo? jogoBanco = _context.Jogo
                 .Include(jogo => jogo.Genero)
-                .Include(jogo => jogo.JogoPromocao)
                 .Include(jogo => jogo.Log_AlteracaoJogo)
                 .Include(jogo => jogo.Plataforma)
                 .FirstOrDefault(jogoAux => jogo.JogoID == jogo.JogoID);
@@ -115,25 +110,20 @@ namespace Royal_Games.Repositories
             }
 
             var generos = _context.Genero
-                .Where(genero => generoIds.Contains(genero.GeneroID))
+                .Where(genero => GeneroID.Contains(genero.GeneroID))
                 .ToList();
-            /*var jogoPromos = _context.JogoPromocao
-                .Where(jogoPromo => jogoPromoIds.Contains(jogoPromo.JogoPromocaoID))
-                .ToList();*/
             var logs = _context.Log_AlteracaoJogo
-                .Where(log => logIds.Contains(log.Log_AlteracaoJogoID))
+                .Where(log => Log_AlteracaoJogoID.Contains(log.Log_AlteracaoJogoID))
                 .ToList();
             var plataformas = _context.Plataforma
-                .Where(plataforma => plataformaIds.Contains(plataforma.PlataformaID))
+                .Where(plataforma => PlataformaID.Contains(plataforma.PlataformaID))
                 .ToList();
 
             jogoBanco.Genero.Clear();
-            //jogoBanco.JogoPromocao.Clear();
             jogoBanco.Log_AlteracaoJogo.Clear();
             jogoBanco.Plataforma.Clear();
 
             foreach (var genero in generos) { jogoBanco.Genero.Add(genero); }
-            //foreach (var jogoPromo in jogoPromos) { jogoBanco.JogoPromocao.Add(jogoPromo); }
             foreach (var log in logs) { jogoBanco.Log_AlteracaoJogo.Add(log); }
             foreach (var plataforma in plataformas) { jogoBanco.Plataforma.Add(plataforma); }
 

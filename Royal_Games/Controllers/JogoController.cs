@@ -43,10 +43,10 @@ namespace Royal_Games.Controllers
             return Ok(jogos);
         }
 
-        [HttpGet("{id}")]
-        public ActionResult<LerJogoDto> ObterPorId(int id)
+        [HttpGet("{Id}")]
+        public ActionResult<LerJogoDto> ObterPorId(int Id)
         {
-            LerJogoDto jogo = _service.ObterPorId(id);
+            LerJogoDto jogo = _service.ObterPorId(Id);
 
             if (jogo == null)
             {
@@ -57,12 +57,12 @@ namespace Royal_Games.Controllers
         }
 
         // GET -> api/produto/5/imagem
-        [HttpGet("{id}/imagem")]
-        public ActionResult ObterImagem(int id)
+        [HttpGet("{Id}/imagem")]
+        public ActionResult ObterImagem(int Id)
         {
             try
             {
-                var imagem = _service.ObterImagem(id);
+                var imagem = _service.ObterImagem(Id);
                 // Retorna o arquivo para o navegador, "image/jpeg" informa o tipo da imagem (MIME type).
                 // O navegador entende que deve renderizar como imagem.
                 return File(imagem, "image/jpeg");
@@ -95,7 +95,7 @@ namespace Royal_Games.Controllers
             }
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{Id}")]
         [Consumes("multipart/form-data")]
         [Authorize]
         public ActionResult Atualizar(int Id, [FromForm] AtualizarJogoDto jogoDto)
@@ -111,7 +111,7 @@ namespace Royal_Games.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{Id}")]
         [Authorize]
         public ActionResult Remover(int Id)
         {

@@ -26,10 +26,10 @@ namespace Royal_Games.Controllers
             return Ok(classificacoes);
         }
 
-        [HttpGet("{id}")]
-        public ActionResult<LerClassificacaoIndicativaDto> ObterPorId(int id)
+        [HttpGet("{Id}")]
+        public ActionResult<LerClassificacaoIndicativaDto> ObterPorId(int Id)
         {
-            LerClassificacaoIndicativaDto classificacaoIndicativa = _service.ObterPorId(id);
+            LerClassificacaoIndicativaDto classificacaoIndicativa = _service.ObterPorId(Id);
 
             if (classificacaoIndicativa == null)
             {
@@ -54,7 +54,7 @@ namespace Royal_Games.Controllers
             }
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{Id}")]
         [Authorize]
         public ActionResult Atualizar(int Id, CriarClassificacaoIndicativaDto criarDto)
         {

@@ -1,7 +1,5 @@
-﻿//using Royal_Games.Applications.Conversoes;
-//using Royal_Games.Applications.Regras;
+﻿using Royal_Games.Applications.Regras;
 using Royal_Games.Applications.Conversoes;
-using Royal_Games.Applications.Regras;
 using Royal_Games.Domains;
 using Royal_Games.DTOs.JogoDto;
 using Royal_Games.Exceptions;
@@ -102,12 +100,11 @@ namespace Royal_Games.Applications.Services
                 Imagem = ImagemParaBytes.ConverterImagem(jogoDto.Imagem),
                 StatusJogo = true,
                 UsuarioID = usuarioId
-            };
+            }; 
 
-            //_repository.Adicionar(jogo, jogoDto.generoIds)
-            //_repository.Adicionar(jogo, jogoDto.jogoPromoIds)
-            //_repository.Adicionar(jogo, jogoDto.logIds)
-            //_repository.Adicionar(jogo, jogoDto.plataformaIds)
+            _repository.Adicionar(jogo, jogoDto.GeneroID);
+            _repository.Adicionar(jogo, jogoDto.Log_AlteracaoJogoID);
+            _repository.Adicionar(jogo, jogoDto.PlataformaID);
 
             return JogoParaDto.ConverterParaDto(jogo);
         }
@@ -148,10 +145,9 @@ namespace Royal_Games.Applications.Services
                 jogoBanco.StatusJogo = jogoDto.StatusJogo.Value;
             }
 
-            //_repository.Atualizar(jogoBanco, jogoDto.generoIds)
-            //_repository.Atualizar(jogoBanco, jogoDto.jogoPromoIds)
-            //_repository.Atualizar(jogoBanco, jogoDto.logIds)
-            //_repository.Atualizar(jogoBanco, jogoDto.plataformaIds)
+            _repository.Atualizar(jogoBanco, jogoDto.GeneroID);
+            _repository.Atualizar(jogoBanco, jogoDto.Log_AlteracaoJogoID);
+            _repository.Atualizar(jogoBanco, jogoDto.PlataformaID);
 
             return JogoParaDto.ConverterParaDto(jogoBanco);
         }
