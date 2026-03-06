@@ -5,7 +5,7 @@ namespace Royal_Games.Domains;
 
 public partial class Log_AlteracaoJogo
 {
-    public int Log_AlteracaoJogoID { get; set; }
+    public int Log_AlteracaoJogoID { get; set; } = 1;
 
     public DateTime DataAlteracao { get; set; }
 

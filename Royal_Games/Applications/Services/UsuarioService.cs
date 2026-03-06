@@ -132,7 +132,7 @@ namespace Royal_Games.Applications.Services
 
             Usuario? usuarioMesmoEmail = _repository.ObterPorEmail(usuarioDto.Email);
 
-            if (usuarioMesmoEmail != null || usuarioMesmoEmail.UsuarioID == id)
+            if (usuarioMesmoEmail != null && usuarioMesmoEmail.UsuarioID == id)
             {
                 throw new DomainException("Email Invalido");
             }

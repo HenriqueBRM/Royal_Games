@@ -19,12 +19,9 @@ namespace Royal_Games.Applications.Conversoes
                 GeneroID = jogo.Genero.Select(genero => genero.GeneroID).ToList(),
                 Generos = jogo.Genero.Select(genero => genero.Nome).ToList(),
 
-                PlataformaID = jogo.Plataforma.Select(plataforma => plataforma.PlataformaID).ToList(),
-                Plataformas = jogo.Plataforma.Select(plataforma => plataforma.Nome).ToList(),
-
                 UsuarioID = jogo.UsuarioID,
-                UsuarioNome = jogo.Usuario!.Nome,
-                UsuarioEmail = jogo.Usuario.Email
+                UsuarioNome = jogo.Usuario?.Nome,
+                UsuarioEmail = jogo.Usuario?.Email
             };
         }
     }

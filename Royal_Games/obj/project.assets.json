@@ -4160,23 +4160,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\43698404818\\.nuget\\packages\\": {},
+    "C:\\Users\\23971603823\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\43698404818\\Desktop\\Royal_Games\\Royal_Games\\Royal_Games.csproj",
+      "projectUniqueName": "C:\\Users\\23971603823\\Desktop\\Royal Games\\Royal_Games\\Royal_Games\\Royal_Games.csproj",
       "projectName": "Royal_Games",
-      "projectPath": "C:\\Users\\43698404818\\Desktop\\Royal_Games\\Royal_Games\\Royal_Games.csproj",
-      "packagesPath": "C:\\Users\\43698404818\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\43698404818\\Desktop\\Royal_Games\\Royal_Games\\obj\\",
+      "projectPath": "C:\\Users\\23971603823\\Desktop\\Royal Games\\Royal_Games\\Royal_Games\\Royal_Games.csproj",
+      "packagesPath": "C:\\Users\\23971603823\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\23971603823\\Desktop\\Royal Games\\Royal_Games\\Royal_Games\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\43698404818\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\23971603823\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4250,24 +4250,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[8.0.24, 8.0.24]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[8.0.24, 8.0.24]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[8.0.24, 8.0.24]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[8.0.24, 8.0.24]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"

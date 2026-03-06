@@ -12,6 +12,11 @@ namespace Royal_Games.Applications.Services
     {
         private readonly IJogoRepository _repository;
 
+        public JogoService(IJogoRepository repository)
+        {
+            _repository = repository;
+        }
+
         // Para cada jogo que veio do banco
         // Crie um Dto só com o que a requisição/front precisa.
         public List<LerJogoDto> Listar()
@@ -100,11 +105,9 @@ namespace Royal_Games.Applications.Services
                 Imagem = ImagemParaBytes.ConverterImagem(jogoDto.Imagem),
                 StatusJogo = true,
                 UsuarioID = usuarioId
-            }; 
+            };
 
             _repository.Adicionar(jogo, jogoDto.GeneroID);
-            _repository.Adicionar(jogo, jogoDto.Log_AlteracaoJogoID);
-            _repository.Adicionar(jogo, jogoDto.PlataformaID);
 
             return JogoParaDto.ConverterParaDto(jogo);
         }
@@ -146,8 +149,6 @@ namespace Royal_Games.Applications.Services
             }
 
             _repository.Atualizar(jogoBanco, jogoDto.GeneroID);
-            _repository.Atualizar(jogoBanco, jogoDto.Log_AlteracaoJogoID);
-            _repository.Atualizar(jogoBanco, jogoDto.PlataformaID);
 
             return JogoParaDto.ConverterParaDto(jogoBanco);
         }

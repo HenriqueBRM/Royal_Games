@@ -16,7 +16,7 @@ namespace Royal_Games.Controllers
         {
             _service = service;
         }
-        [HttpPost("{login}")]
+        [HttpPost("login")]
         public ActionResult<TokenDto> Login(LoginDto loginDto)
         {
             try

@@ -103,7 +103,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         // Também ajuda a garantir que o token pertence ao seu sistema.
         var audience = builder.Configuration["Jwt:Audience"]!;
 
-        // Define as regras que serão usadas para Validar o token recebIdo.
+        // Define as regras que serão usadas para Validar o token recebido.
         options.TokenValidationParameters = new TokenValidationParameters
         {
             // Verifica se o emissor do token é válIdo

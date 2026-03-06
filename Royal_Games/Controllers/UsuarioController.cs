@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Royal_Games.Applications.Services;
 using Royal_Games.DTOs.UsuarioDto;
@@ -75,6 +76,7 @@ namespace Royal_Games.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public ActionResult Remover(int id)
         {
             try

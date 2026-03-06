@@ -18,10 +18,8 @@ namespace Royal_Games.Repositories
         {
             List<Jogo> jogos = _context.Jogo
                 .Include(jogo => jogo.Genero)
-                .Include(jogo => jogo.JogoPromocao)
-                .Include(jogo => jogo.Log_AlteracaoJogo)
                 .Include(jogo => jogo.Plataforma)
-                .Include(jogo => jogo.Usuario)
+                .Include(jogo => jogo.ClassificacaoIndicativa)
                 .ToList();
 
             return jogos;
@@ -62,37 +60,22 @@ namespace Royal_Games.Repositories
             return jogo!;
         }
 
-        public void Adicionar(Jogo jogo, List<int> GeneroID, List<int> Log_AlteracaoJogoID, List<int> PlataformaID)
+        public void Adicionar(Jogo jogo, List<int> GeneroID)
         {
             List<Genero> generos = _context.Genero
                 .Where(genero => GeneroID.Contains(genero.GeneroID))
                 .ToList();
-            List<Log_AlteracaoJogo> logs = _context.Log_AlteracaoJogo
-                .Where(log => Log_AlteracaoJogoID.Contains(log.Log_AlteracaoJogoID))
-                .ToList();
-            List<Plataforma> plataformas = _context.Plataforma
-                .Where(plataforma => PlataformaID.Contains(plataforma.PlataformaID))
-                .ToList();
 
             jogo.Genero = generos;
-            jogo.Log_AlteracaoJogo = logs;
-            jogo.Plataforma = plataformas;
 
             _context.Jogo.Add(jogo);
             _context.SaveChanges();
         }
 
-        public void Adicionar(Jogo jogo, List<int>? generoID)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Atualizar(Jogo jogo, List<int> GeneroID, List<int> Log_AlteracaoJogoID, List<int> PlataformaID)
+        public void Atualizar(Jogo jogo, List<int> GeneroID)
         {
             Jogo? jogoBanco = _context.Jogo
                 .Include(jogo => jogo.Genero)
-                .Include(jogo => jogo.Log_AlteracaoJogo)
-                .Include(jogo => jogo.Plataforma)
                 .FirstOrDefault(jogoAux => jogo.JogoID == jogo.JogoID);
 
             if (jogoBanco == null)
@@ -117,27 +100,12 @@ namespace Royal_Games.Repositories
             var generos = _context.Genero
                 .Where(genero => GeneroID.Contains(genero.GeneroID))
                 .ToList();
-            var logs = _context.Log_AlteracaoJogo
-                .Where(log => Log_AlteracaoJogoID.Contains(log.Log_AlteracaoJogoID))
-                .ToList();
-            var plataformas = _context.Plataforma
-                .Where(plataforma => PlataformaID.Contains(plataforma.PlataformaID))
-                .ToList();
 
             jogoBanco.Genero.Clear();
-            jogoBanco.Log_AlteracaoJogo.Clear();
-            jogoBanco.Plataforma.Clear();
 
             foreach (var genero in generos) { jogoBanco.Genero.Add(genero); }
-            foreach (var log in logs) { jogoBanco.Log_AlteracaoJogo.Add(log); }
-            foreach (var plataforma in plataformas) { jogoBanco.Plataforma.Add(plataforma); }
 
             _context.SaveChanges();
-        }
-
-        public void Atualizar(Jogo jogoBanco, List<int>? generoID)
-        {
-            throw new NotImplementedException();
         }
 
         public void Remover(int Id)
