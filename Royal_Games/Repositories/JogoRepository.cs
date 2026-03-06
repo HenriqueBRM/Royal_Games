@@ -82,6 +82,11 @@ namespace Royal_Games.Repositories
             _context.SaveChanges();
         }
 
+        public void Adicionar(Jogo jogo, List<int>? generoID)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Atualizar(Jogo jogo, List<int> GeneroID, List<int> Log_AlteracaoJogoID, List<int> PlataformaID)
         {
             Jogo? jogoBanco = _context.Jogo
@@ -128,6 +133,11 @@ namespace Royal_Games.Repositories
             foreach (var plataforma in plataformas) { jogoBanco.Plataforma.Add(plataforma); }
 
             _context.SaveChanges();
+        }
+
+        public void Atualizar(Jogo jogoBanco, List<int>? generoID)
+        {
+            throw new NotImplementedException();
         }
 
         public void Remover(int Id)
