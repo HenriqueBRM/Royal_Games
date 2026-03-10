@@ -14,10 +14,20 @@ namespace Royal_Games.Applications.Conversoes
                 Nome = jogo.Nome,
                 Preco = jogo.Preco,
                 Descricao = jogo.Descricao,
-                StatusJogo = jogo.StatusJogo,
+                StatusJogo = jogo.StatusJogo ?? true,
 
-                GeneroID = jogo.Genero.Select(genero => genero.GeneroID).ToList(),
-                Generos = jogo.Genero.Select(genero => genero.Nome).ToList(),
+
+                PlataformaID = jogo.Plataforma?.Select(p => p.PlataformaID).ToList() ?? new List<int>(),
+                Plataformas = jogo.Plataforma?.Select(p => p.Nome).ToList() ?? new List<string>(),
+
+
+                GeneroID = jogo.Genero?.Select(g=> g.GeneroID).ToList() ?? new List<int>(),
+                Generos = jogo.Genero?.Select(g => g.Nome).ToList() ?? new List<string>(),
+
+
+                ClassificacaoId = jogo.ClassificacaoIndicativaID,
+                Classificacao = jogo.ClassificacaoIndicativa?.Classificacao,
+
 
                 UsuarioID = jogo.UsuarioID,
                 UsuarioNome = jogo.Usuario?.Nome,

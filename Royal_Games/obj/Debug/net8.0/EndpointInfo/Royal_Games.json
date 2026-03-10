@@ -618,21 +618,10 @@
                     "type": "string",
                     "format": "binary"
                   },
+                  "StatusJogo": {
+                    "type": "boolean"
+                  },
                   "GeneroID": {
-                    "type": "array",
-                    "items": {
-                      "type": "integer",
-                      "format": "int32"
-                    }
-                  },
-                  "JogoPromocaoID": {
-                    "type": "array",
-                    "items": {
-                      "type": "integer",
-                      "format": "int32"
-                    }
-                  },
-                  "Log_AlteracaoJogoID": {
                     "type": "array",
                     "items": {
                       "type": "integer",
@@ -645,6 +634,10 @@
                       "type": "integer",
                       "format": "int32"
                     }
+                  },
+                  "ClassificacaoId": {
+                    "type": "integer",
+                    "format": "int32"
                   }
                 }
               },
@@ -661,16 +654,16 @@
                 "Imagem": {
                   "style": "form"
                 },
+                "StatusJogo": {
+                  "style": "form"
+                },
                 "GeneroID": {
                   "style": "form"
                 },
-                "JogoPromocaoID": {
-                  "style": "form"
-                },
-                "Log_AlteracaoJogoID": {
-                  "style": "form"
-                },
                 "PlataformaID": {
+                  "style": "form"
+                },
+                "ClassificacaoId": {
                   "style": "form"
                 }
               }
@@ -758,21 +751,14 @@
                     "type": "string",
                     "format": "binary"
                   },
+                  "StatusJogo": {
+                    "type": "boolean"
+                  },
+                  "ClassificacaoId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
                   "GeneroID": {
-                    "type": "array",
-                    "items": {
-                      "type": "integer",
-                      "format": "int32"
-                    }
-                  },
-                  "JogoPromocaoID": {
-                    "type": "array",
-                    "items": {
-                      "type": "integer",
-                      "format": "int32"
-                    }
-                  },
-                  "Log_AlteracaoJogoID": {
                     "type": "array",
                     "items": {
                       "type": "integer",
@@ -785,9 +771,6 @@
                       "type": "integer",
                       "format": "int32"
                     }
-                  },
-                  "StatusJogo": {
-                    "type": "boolean"
                   }
                 }
               },
@@ -804,19 +787,16 @@
                 "Imagem": {
                   "style": "form"
                 },
+                "StatusJogo": {
+                  "style": "form"
+                },
+                "ClassificacaoId": {
+                  "style": "form"
+                },
                 "GeneroID": {
                   "style": "form"
                 },
-                "JogoPromocaoID": {
-                  "style": "form"
-                },
-                "Log_AlteracaoJogoID": {
-                  "style": "form"
-                },
                 "PlataformaID": {
-                  "style": "form"
-                },
-                "StatusJogo": {
                   "style": "form"
                 }
               }
@@ -847,6 +827,45 @@
         "responses": {
           "200": {
             "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Jogo/nome/{Nome}": {
+      "get": {
+        "tags": [
+          "Jogo"
+        ],
+        "parameters": [
+          {
+            "name": "Nome",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LerJogoDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LerJogoDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LerJogoDto"
+                }
+              }
+            }
           }
         }
       }
@@ -1625,9 +1644,13 @@
             "type": "string",
             "nullable": true
           },
-          "statusJogo": {
-            "type": "boolean",
+          "imagem": {
+            "type": "string",
+            "format": "binary",
             "nullable": true
+          },
+          "statusJogo": {
+            "type": "boolean"
           },
           "generoID": {
             "type": "array",
@@ -1638,36 +1661,6 @@
             "nullable": true
           },
           "generos": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "jogoPromocaoID": {
-            "type": "array",
-            "items": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "nullable": true
-          },
-          "jogoPromocoes": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "log_AlteracaoJogoID": {
-            "type": "array",
-            "items": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "nullable": true
-          },
-          "log_Alteracoes": {
             "type": "array",
             "items": {
               "type": "string"
@@ -1687,6 +1680,15 @@
             "items": {
               "type": "string"
             },
+            "nullable": true
+          },
+          "classificacaoId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "classificacao": {
+            "type": "string",
             "nullable": true
           },
           "usuarioID": {

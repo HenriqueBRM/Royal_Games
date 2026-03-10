@@ -43,10 +43,23 @@ namespace Royal_Games.Controllers
             return Ok(jogos);
         }
 
-        [HttpGet("{Id}")]
+        [HttpGet("{Id:int}")]
         public ActionResult<LerJogoDto> ObterPorId(int Id)
         {
             LerJogoDto jogo = _service.ObterPorId(Id);
+
+            if (jogo == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(jogo);
+        }
+
+        [HttpGet("nome/{Nome}")]
+        public ActionResult<LerJogoDto> ObterPorNome(string Nome)
+        {
+            LerJogoDto jogo = _service.ObterPorNome(Nome);
 
             if (jogo == null)
             {
@@ -118,7 +131,7 @@ namespace Royal_Games.Controllers
             try
             {
                 _service.Remover(Id);
-                return NoContent();
+                return StatusCode(204, Id);
             }
             catch (DomainException ex)
             {

@@ -1,5 +1,6 @@
-﻿using Royal_Games.Applications.Regras;
+﻿using Microsoft.EntityFrameworkCore;
 using Royal_Games.Applications.Conversoes;
+using Royal_Games.Applications.Regras;
 using Royal_Games.Domains;
 using Royal_Games.DTOs.JogoDto;
 using Royal_Games.Exceptions;
@@ -40,6 +41,18 @@ namespace Royal_Games.Applications.Services
             }
 
             // converte o jogo encontrado para Dto e devolve.
+            return JogoParaDto.ConverterParaDto(jogo);
+        }
+
+        public LerJogoDto ObterPorNome(string Nome)
+        {
+            Jogo jogo = _repository.ObterPorNome(Nome);
+
+            if (jogo == null)
+            {
+                throw new DomainException("Jogo nao encontrado");
+            }
+
             return JogoParaDto.ConverterParaDto(jogo);
         }
 
@@ -107,7 +120,8 @@ namespace Royal_Games.Applications.Services
                 UsuarioID = usuarioId
             };
 
-            _repository.Adicionar(jogo, jogoDto.GeneroID);
+
+            _repository.Adicionar(jogo, jogoDto.GeneroID, jogoDto.PlataformaID);
 
             return JogoParaDto.ConverterParaDto(jogo);
         }
@@ -141,21 +155,20 @@ namespace Royal_Games.Applications.Services
             if (jogoDto.Imagem != null && jogoDto.Imagem.Length > 0)
             {
                 jogoBanco.Imagem = ImagemParaBytes.ConverterImagem(jogoDto.Imagem);
-            }
+            }       
 
             if (jogoDto.StatusJogo.HasValue)
             {
                 jogoBanco.StatusJogo = jogoDto.StatusJogo.Value;
             }
 
-            _repository.Atualizar(jogoBanco, jogoDto.GeneroID);
+            _repository.Atualizar(jogoBanco, jogoDto.GeneroID, jogoDto.PlataformaID);
 
             return JogoParaDto.ConverterParaDto(jogoBanco);
         }
 
         public void Remover(int Id)
-        {
-            HorarioAlteracaoJogo.ValidarHorario();
+        {            
 
             Jogo jogo = _repository.ObterPorId(Id);
 
